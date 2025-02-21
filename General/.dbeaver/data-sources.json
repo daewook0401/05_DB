@@ -1,10 +1,10 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1951c18744c-7f4fb74a537450e3": {
+		"oracle_thin-1951c1866cf-7ebdcc3c7aba6064": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "공용DB-systeam계정",
+			"name": "공용DB-system계정",
 			"save-password": true,
 			"configuration": {
 				"host": "112.221.156.34",
@@ -12,6 +12,7 @@
 				"database": "XE",
 				"url": "jdbc:oracle:thin:@//112.221.156.34:12345/XE",
 				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
 				"type": "dev",
 				"closeIdleConnection": true,
 				"provider-properties": {
@@ -21,7 +22,7 @@
 				"auth-model": "oracle_native"
 			}
 		},
-		"oracle_thin-1951c3dd6c4-788f2d3aff953191": {
+		"oracle_thin-1951c3ebf80-34003677eadd391e": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "KH04_KDW",
@@ -32,6 +33,7 @@
 				"database": "XE",
 				"url": "jdbc:oracle:thin:@//112.221.156.34:12345/XE",
 				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
 				"type": "dev",
 				"closeIdleConnection": true,
 				"provider-properties": {
@@ -47,6 +49,34 @@
 					"include": ["KH04_KDW"]
 				}
 			]
+		},
+		"oracle_thin-19522678512-7344ff636690054a": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "WORKBOOK",
+			"save-password": true,
+			"configuration": {
+				"host": "112.221.156.34",
+				"port": "12345",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//112.221.156.34:12345/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			},
+			"filters": [
+				{
+					"type": "org.jkiss.dbeaver.ext.oracle.model.OracleSchema",
+					"enabled": true,
+					"include": ["WORKBOOK"]
+				}
+			]
 		}
 	},
 	"connection-types": {
@@ -54,7 +84,7 @@
 			"name": "Development",
 			"color": "255,255,255",
 			"description": "Regular development database",
-			"auto-commit": false,
+			"auto-commit": true,
 			"confirm-execute": false,
 			"confirm-data-change": false,
 			"smart-commit": false,
