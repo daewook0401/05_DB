@@ -586,24 +586,27 @@ SELECT
 	EMP_NAME 사원명, 
 	DEPT_TITLE 부서명,
 	LOCAL_NAME 지역명,
-	DECODE(NATIONAL_CODE, 'KO','한국','JP','일본') 국가명
+	N.NATIONAL_NAME 국가명
 FROM
 	EMPLOYEE E
 JOIN
 	DEPARTMENT D ON (E.DEPT_CODE = D.DEPT_ID)
 JOIN
 	LOCATION L ON (D.LOCATION_ID = L.LOCAL_CODE)
+JOIN
+	"NATIONAL" N ON (L.NATIONAL_CODE = N.NATIONAL_CODE)
 WHERE
-	NATIONAL_CODE = 'KO'
-OR
-	NATIONAL_CODE = 'JP';
+	N.NATIONAL_NAME IN ('한국', '일본');
 
-
+SELECT
+	*
+FROM
+	"NATIONAL";
 
 -- 8. 같은 부서에 근무하는 직원들의 사원명, 부서코드, 동료이름을 조회하시오.
 -- SELF JOIN 사용
 SELECT
-	E.EMP_NAME, E.DEPT_CODE, M.EMP_NAME
+	E.EMP_NAME "사원명", E.DEPT_CODE "부서코드", M.EMP_NAME "동료이름"
 FROM
 	EMPLOYEE E
 JOIN
@@ -611,7 +614,7 @@ JOIN
 WHERE
 	E.EMP_NAME != M.EMP_NAME
 ORDER BY
-	E.EMP_NAME ASC;
+	"사원명" ASC;
 	
 
 -- 9. 보너스포인트가 없는 직원들 중에서 직급코드가 J4와 J7인 직원들의 사원명, 직급명, 급여를 조회하시오.
@@ -623,8 +626,10 @@ FROM
 JOIN
 	JOB J ON (E.JOB_CODE = J.JOB_CODE)
 WHERE
-	E.JOB_CODE IN ('J4', 'J7');
-	
+	E.JOB_CODE IN ('J4', 'J7')
+AND
+	BONUS IS NULL;
+
 SELECT
 	*
 FROM
