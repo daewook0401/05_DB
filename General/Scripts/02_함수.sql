@@ -13,7 +13,10 @@
  *  GROUP BY절, HAVING절에서 사용 가능
  * 	(FROM 빼고 다 가능)
  * */
-
+SELECT *
+FROM EMPLOYEE E
+JOIN JOB J ON(E.JOB_CODE = J.JOB_CODE)
+LEFT JOIN DEPARTMENT D ON (E.DEPT_CODE = D.DEPT_ID) ;
 --------------------------------------------------------
 /******* 단일 행 함수 *******/
 

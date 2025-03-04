@@ -47,7 +47,7 @@ WHERE
 		EMPLOYEE
 	WHERE
 		EMP_NAME = '노옹철' -- D9 (1행 1열)
-	);             
+	);         
                    
                    
 -- 서브쿼리 예시 2.
@@ -132,7 +132,7 @@ FROM
 JOIN
 	JOB J ON (E.JOB_CODE = J.JOB_CODE)
 WHERE
-	SALARY = (
+	SALARY >= (
 		SELECT MIN(SALARY)
 		FROM EMPLOYEE
 	)
